@@ -2,19 +2,19 @@ package actor;
 
 public interface IamSuperMario {
 
-    void isHitByEnemy();
+    IamSuperMario isHitByEnemy();
 
     boolean isDead();
 
-    void findsMushroom();
+    IamSuperMario findsMushroom();
 
     boolean hasMushroom();
 
     int getLives();
 
-    void findsLive();
+    IamSuperMario findsLive();
 
-    void findsFireFlower();
+    IamSuperMario findsFireFlower();
 
     boolean hasFireFlower();
 
