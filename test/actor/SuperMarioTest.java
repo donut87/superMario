@@ -83,4 +83,13 @@ public class SuperMarioTest {
         assertFalse(mario.isDead());
     }
 
+    @Test
+    public void WhenSuperMarioFindsAFireFlower_ThenHeGrows() throws Exception {
+        SuperMario mario = new SuperMario();
+
+        mario.findsFireFlower();
+
+        assertTrue(mario.hasFireFlower());
+    }
+
 }
