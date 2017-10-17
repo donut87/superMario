@@ -10,20 +10,20 @@ public class SuperMarioTest {
 
     @Test
     public void WhenMarioIsInitialized_ThenHeIsAlive() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
         assertFalse(mario.isDead());
     }
 
     @Test
     public void WhenMarioFindsMushroom_ThenHeBecomesMarioWithMushroom() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
         mario.findsMushroom();
         assertTrue(mario.hasMushroom());
     }
 
     @Test
     public void WhenMarioWithMushroomIsHitByEnemy_ThenHeBecomesSmallMario() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
         mario.findsMushroom();
 
         mario.isHitByEnemy();
@@ -33,14 +33,14 @@ public class SuperMarioTest {
 
     @Test
     public void WhenSuperMarioStarts_ThenHeHasThreeLives() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
 
         assertEquals(3, mario.getLives());
     }
 
     @Test
     public void WhenSuperMarioDies_HeLosesALive() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
 
         mario.isHitByEnemy();
 
@@ -49,7 +49,7 @@ public class SuperMarioTest {
 
     @Test
     public void WhenSuperMarioHasUsedAllLives_ThenHeHeIsDead() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
 
         mario.isHitByEnemy();
         mario.isHitByEnemy();
@@ -61,7 +61,7 @@ public class SuperMarioTest {
 
     @Test
     public void WhenSuperMarioFindsALive_ThenHisNumberOfLivesAreIncreased() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
 
         mario.findsLive();
 
@@ -70,7 +70,7 @@ public class SuperMarioTest {
 
     @Test
     public void WhenDeadSuperMarioFindsLive_HeBecomesAliveAgain() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
 
         // kill Mario
         mario.isHitByEnemy();
@@ -85,7 +85,7 @@ public class SuperMarioTest {
 
     @Test
     public void WhenSuperMarioFindsAFireFlower_ThenHeGrows() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
 
         mario.findsFireFlower();
 
@@ -94,7 +94,7 @@ public class SuperMarioTest {
 
     @Test
     public void WhenMarioWithFireFlowerIsHitByEnemy_ThenHeBecomesMarioWithMushroom() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
 
         mario.findsFireFlower();
         mario.isHitByEnemy();
@@ -104,7 +104,7 @@ public class SuperMarioTest {
 
     @Test
     public void WhenSuperMarioWithFireFlowerFindsMushroom_ThenHeKeepsTheFireFlower() throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
 
         mario.findsFireFlower();
         mario.findsMushroom();
@@ -115,7 +115,7 @@ public class SuperMarioTest {
     @Test
     public void WhenSuperMarioFirstFindsMushroomAndThenFireFlowerFindsMushroom_ThenHeKeepsTheFireFlower()
             throws Exception {
-        SuperMario mario = new SuperMario();
+        IamSuperMario mario = new SuperMario();
 
         mario.findsMushroom();
         mario.findsFireFlower();
