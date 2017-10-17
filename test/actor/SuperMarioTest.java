@@ -37,5 +37,21 @@ public class SuperMarioTest {
 
 		assertFalse(mario.isBig());
 	}
+	
+	@Test
+	public void WhenSuperMarioStarts_ThenHeHasThreeLives() throws Exception {
+		SuperMario mario = new SuperMario();
+		
+		assertEquals(3, mario.getLives());
+	}
+	
+	@Test
+	public void WhenSuperMarioDies_HeLosesALive() throws Exception {
+		SuperMario mario = new SuperMario();
+		
+		mario.isHitByEnemy();
+		
+		assertEquals(2, mario.getLives());
+	}
 
 }
