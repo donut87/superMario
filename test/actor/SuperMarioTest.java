@@ -92,4 +92,14 @@ public class SuperMarioTest {
         assertTrue(mario.hasFireFlower());
     }
 
+    @Test
+    public void WhenMarioWithFireFlowerIsHitByEnemy_ThenHeBecomesBigMario() throws Exception {
+        SuperMario mario = new SuperMario();
+
+        mario.findsFireFlower();
+        mario.isHitByEnemy();
+
+        assertTrue(mario.isBig() && !mario.hasFireFlower());
+    }
+
 }

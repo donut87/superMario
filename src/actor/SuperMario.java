@@ -12,6 +12,11 @@ public class SuperMario {
             isBig = false;
             return;
         }
+        if (fireFlower) {
+            isBig = true;
+            fireFlower = false;
+            return;
+        }
         lives -= 1;
         if (lives < 0) {
             isDead = true;
