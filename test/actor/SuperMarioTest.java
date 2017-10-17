@@ -13,13 +13,13 @@ public class SuperMarioTest {
     public void WhenMarioIsInitialized_ThenHeIsAliveAndSmall() throws Exception {
         IamSuperMario mario = new SmallMario();
         assertFalse(mario.isDead());
-
     }
+
     @Test
     public void WhenSmallMarioFindsMushroom_ThenHeBecomesMarioWithMushroom() throws Exception {
         IamSuperMario mario = new SmallMario();
         mario = mario.findsMushroom();
-        assertTrue(mario.hasMushroom());
+        assertTrue(MarioWithMushroom.class.isAssignableFrom(mario.getClass()));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class SuperMarioTest {
 
         mario = mario.isHitByEnemy();
 
-        assertFalse(mario.hasMushroom());
+        assertTrue(SmallMario.class.isAssignableFrom(mario.getClass()));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class SuperMarioTest {
         mario = mario.isHitByEnemy();
         mario = mario.isHitByEnemy();
 
-        assertTrue(mario.isDead());
+        assertTrue(DeadMario.class.isAssignableFrom(mario.getClass()));
     }
 
     @Test
@@ -69,12 +69,12 @@ public class SuperMarioTest {
     }
 
     @Test
-    public void WhenDeadSuperMarioFindsLive_HeBecomesAliveAgain() throws Exception {
+    public void WhenDeadSuperMarioFindsLive_HeBecomesSmallMario() throws Exception {
         IamSuperMario mario = new DeadMario();
 
         mario = mario.findsLive();
 
-        assertFalse(mario.isDead());
+        assertTrue(SmallMario.class.isAssignableFrom(mario.getClass()));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class SuperMarioTest {
 
         mario = mario.findsFireFlower();
 
-        assertTrue(mario.hasFireFlower());
+        assertTrue(MarioWithFireFlower.class.isAssignableFrom(mario.getClass()));
     }
 
     @Test
