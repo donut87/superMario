@@ -1,19 +1,12 @@
 package actor;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
 public class SuperMarioTest {
-
-    @Test
-    public void WhenMarioIsInitialized_ThenHeIsAliveAndSmall() throws Exception {
-        IamSuperMario mario = new SmallMario();
-        assertFalse(mario.isDead());
-    }
 
     @Test
     public void WhenSmallMarioFindsMushroom_ThenHeBecomesMarioWithMushroom() throws Exception {
