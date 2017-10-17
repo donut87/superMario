@@ -62,13 +62,7 @@ public class SuperMarioTest {
 
     @Test
     public void WhenDeadSuperMarioFindsLive_HeBecomesAliveAgain() throws Exception {
-        IamSuperMario mario = new SmallMario();
-
-        // kill Mario
-        mario = mario.isHitByEnemy();
-        mario = mario.isHitByEnemy();
-        mario = mario.isHitByEnemy();
-        mario = mario.isHitByEnemy();
+        IamSuperMario mario = new DeadMario();
 
         mario = mario.findsLive();
 
