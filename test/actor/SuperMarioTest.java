@@ -47,4 +47,16 @@ public class SuperMarioTest {
         assertEquals(2, mario.getLives());
     }
 
+    @Test
+    public void WhenSuperMarioHasUsedAllLives_ThenHeHeIsDead() throws Exception {
+        SuperMario mario = new SuperMario();
+
+        mario.isHitByEnemy();
+        mario.isHitByEnemy();
+        mario.isHitByEnemy();
+        mario.isHitByEnemy();
+
+        assertTrue(mario.isDead());
+    }
+
 }
