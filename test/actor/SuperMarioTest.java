@@ -92,7 +92,7 @@ public class SuperMarioTest {
 
         mario = mario.isHitByEnemy();
 
-        assertTrue(mario.hasMushroom() && !mario.hasFireFlower());
+        assertTrue(MarioWithMushroom.class.isAssignableFrom(mario.getClass()));
     }
 
     @Test
@@ -101,8 +101,7 @@ public class SuperMarioTest {
 
         mario = mario.findsMushroom();
 
-        assertTrue(mario.hasFireFlower());
-        assertTrue(!mario.hasMushroom());
+        assertTrue(MarioWithFireFlower.class.isAssignableFrom(mario.getClass()));
     }
 
     @Ignore
