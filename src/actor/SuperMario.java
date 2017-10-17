@@ -2,46 +2,39 @@ package actor;
 
 public class SuperMario {
 
-    public enum MarioState {
-        DEAD, SMALL, MUSHROOM, FIREFLOWER
-    }
-
-    private MarioState state;
-
+    private boolean isDead;
+    private boolean hasMushroom;
     private int lives = 3;
-
-    public SuperMario() {
-        state = MarioState.SMALL;
-        lives = 3;
-    }
+    private boolean fireFlower;
 
     public void isHitByEnemy() {
-        if (hasMushroom()) {
-            state = MarioState.SMALL;
+        if (hasMushroom) {
+            hasMushroom = false;
             return;
         }
-        if (hasFireFlower()) {
-            state = MarioState.MUSHROOM;
+        if (fireFlower) {
+            hasMushroom = true;
+            fireFlower = false;
             return;
         }
         lives -= 1;
         if (lives < 0) {
-            state = MarioState.DEAD;
+            isDead = true;
         }
     }
 
     public boolean isDead() {
-        return MarioState.DEAD.equals(state);
+        return isDead;
     }
 
     public void findsMushroom() {
-        if (!hasFireFlower()) {
-            state = MarioState.MUSHROOM;
+        if (!fireFlower) {
+            hasMushroom = true;
         }
     }
 
     public boolean hasMushroom() {
-        return MarioState.MUSHROOM.equals(state);
+        return hasMushroom;
     }
 
     public int getLives() {
@@ -49,18 +42,19 @@ public class SuperMario {
     }
 
     public void findsLive() {
-        if (isDead()) {
-            state = MarioState.SMALL;
+        if (isDead) {
+            isDead = false;
         }
         lives++;
     }
 
     public void findsFireFlower() {
-        state = MarioState.FIREFLOWER;
+        hasMushroom = false;
+        this.fireFlower = true;
     }
 
     public boolean hasFireFlower() {
-        return MarioState.FIREFLOWER.equals(state);
+        return fireFlower;
     }
 
 }
