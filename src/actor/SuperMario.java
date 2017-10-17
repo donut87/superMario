@@ -28,7 +28,9 @@ public class SuperMario {
     }
 
     public void findsMushroom() {
-        isBig = true;
+        if (!fireFlower) {
+            isBig = true;
+        }
     }
 
     public boolean isBig() {
