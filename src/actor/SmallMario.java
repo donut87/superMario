@@ -18,7 +18,7 @@ public class SmallMario extends AbstractMario implements IamSuperMario {
 
     @Override
     public IamSuperMario findsMushroom() {
-        return this;
+        return new MarioWithMushroom();
     }
 
     @Override

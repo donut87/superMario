@@ -15,6 +15,13 @@ public class SuperMarioTest {
     }
 
     @Test
+    public void WhenSmallMarioFindsMushroom_ThenHeBecomesMarioWithMushroom() throws Exception {
+        IamSuperMario mario = new SmallMario();
+        mario = mario.findsMushroom();
+        assertTrue(mario.hasMushroom());
+    }
+
+    @Test
     public void WhenMarioWithMushroomIsHitByEnemy_ThenHeBecomesSmallMario() throws Exception {
         IamSuperMario mario = new MarioWithMushroom();
 
@@ -80,9 +87,8 @@ public class SuperMarioTest {
 
     @Test
     public void WhenMarioWithFireFlowerIsHitByEnemy_ThenHeBecomesMarioWithMushroom() throws Exception {
-        IamSuperMario mario = new SmallMario();
+        IamSuperMario mario = new MarioWithFireFlower();
 
-        mario = mario.findsFireFlower();
         mario = mario.isHitByEnemy();
 
         assertTrue(mario.hasMushroom() && !mario.hasFireFlower());
@@ -90,25 +96,11 @@ public class SuperMarioTest {
 
     @Test
     public void WhenSuperMarioWithFireFlowerFindsMushroom_ThenHeKeepsTheFireFlower() throws Exception {
-        IamSuperMario mario = new SmallMario();
+        IamSuperMario mario = new MarioWithFireFlower();
 
-        mario = mario.findsFireFlower();
         mario = mario.findsMushroom();
 
         assertTrue(mario.hasFireFlower());
         assertTrue(!mario.hasMushroom());
     }
-
-    @Test
-    public void WhenSuperMarioFirstFindsMushroomAndThenFireFlowerFindsMushroom_ThenHeKeepsTheFireFlower()
-            throws Exception {
-        IamSuperMario mario = new SmallMario();
-
-        mario = mario.findsMushroom();
-        mario = mario.findsFireFlower();
-        mario = mario.findsMushroom();
-
-        assertTrue(mario.hasFireFlower() && !mario.hasMushroom());
-    }
-
 }
