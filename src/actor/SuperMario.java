@@ -3,17 +3,17 @@ package actor;
 public class SuperMario {
 
     private boolean isDead;
-    private boolean isBig;
+    private boolean hasMushroom;
     private int lives = 3;
     private boolean fireFlower;
 
     public void isHitByEnemy() {
-        if (isBig) {
-            isBig = false;
+        if (hasMushroom) {
+            hasMushroom = false;
             return;
         }
         if (fireFlower) {
-            isBig = true;
+            hasMushroom = true;
             fireFlower = false;
             return;
         }
@@ -29,12 +29,12 @@ public class SuperMario {
 
     public void findsMushroom() {
         if (!fireFlower) {
-            isBig = true;
+            hasMushroom = true;
         }
     }
 
-    public boolean isBig() {
-        return isBig;
+    public boolean hasMushroom() {
+        return hasMushroom;
     }
 
     public int getLives() {
