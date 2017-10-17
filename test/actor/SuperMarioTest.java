@@ -15,7 +15,7 @@ public class SuperMarioTest {
     }
 
     @Test
-    public void WhenMarioFindsMushroom_ThenHeBecomesMarioWithMushroom() throws Exception {
+    public void WhenSmallMarioFindsMushroom_ThenHeBecomesMarioWithMushroom() throws Exception {
         IamSuperMario mario = new SuperMario();
         mario.findsMushroom();
         assertTrue(mario.hasMushroom());
