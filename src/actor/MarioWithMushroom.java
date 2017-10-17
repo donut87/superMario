@@ -8,18 +8,8 @@ public class MarioWithMushroom extends AbstractMario implements IamSuperMario {
     }
 
     @Override
-    public boolean isDead() {
-        return false;
-    }
-
-    @Override
     public IamSuperMario findsMushroom() {
         return this;
-    }
-
-    @Override
-    public boolean hasMushroom() {
-        return true;
     }
 
     @Override
@@ -31,11 +21,4 @@ public class MarioWithMushroom extends AbstractMario implements IamSuperMario {
     public IamSuperMario findsFireFlower() {
         return new MarioWithFireFlower();
     }
-
-    @Override
-    public boolean hasFireFlower() {
-        return false;
-    }
-
-
 }

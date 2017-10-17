@@ -8,18 +8,8 @@ public class DeadMario implements IamSuperMario {
     }
 
     @Override
-    public boolean isDead() {
-        return true;
-    }
-
-    @Override
     public IamSuperMario findsMushroom() {
         return this;
-    }
-
-    @Override
-    public boolean hasMushroom() {
-        return false;
     }
 
     @Override
@@ -36,11 +26,4 @@ public class DeadMario implements IamSuperMario {
     public IamSuperMario findsFireFlower() {
         return this;
     }
-
-    @Override
-    public boolean hasFireFlower() {
-        return false;
-    }
-
-
 }

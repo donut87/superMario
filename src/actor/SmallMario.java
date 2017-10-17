@@ -12,28 +12,12 @@ public class SmallMario extends AbstractMario implements IamSuperMario {
     }
 
     @Override
-    public boolean isDead() {
-        return false;
-    }
-
-    @Override
     public IamSuperMario findsMushroom() {
         return new MarioWithMushroom();
-    }
-
-    @Override
-    public boolean hasMushroom() {
-        return false;
     }
 
     @Override
     public IamSuperMario findsFireFlower() {
         return new MarioWithFireFlower();
     }
-
-    @Override
-    public boolean hasFireFlower() {
-        return false;
-    }
-
 }
