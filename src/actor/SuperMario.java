@@ -8,9 +8,7 @@ public class SuperMario {
 
     private MarioState state;
 
-    private boolean hasMushroom;
     private int lives = 3;
-    private boolean fireFlower;
 
     public SuperMario() {
         state = MarioState.SMALL;
@@ -18,13 +16,12 @@ public class SuperMario {
     }
 
     public void isHitByEnemy() {
-        if (hasMushroom) {
-            hasMushroom = false;
+        if (hasMushroom()) {
+            state = MarioState.SMALL;
             return;
         }
-        if (fireFlower) {
-            hasMushroom = true;
-            fireFlower = false;
+        if (hasFireFlower()) {
+            state = MarioState.MUSHROOM;
             return;
         }
         lives -= 1;
@@ -38,13 +35,13 @@ public class SuperMario {
     }
 
     public void findsMushroom() {
-        if (!fireFlower) {
-            hasMushroom = true;
+        if (!hasFireFlower()) {
+            state = MarioState.MUSHROOM;
         }
     }
 
     public boolean hasMushroom() {
-        return hasMushroom;
+        return MarioState.MUSHROOM.equals(state);
     }
 
     public int getLives() {
@@ -59,12 +56,11 @@ public class SuperMario {
     }
 
     public void findsFireFlower() {
-        hasMushroom = false;
-        this.fireFlower = true;
+        state = MarioState.FIREFLOWER;
     }
 
     public boolean hasFireFlower() {
-        return fireFlower;
+        return MarioState.FIREFLOWER.equals(state);
     }
 
 }
