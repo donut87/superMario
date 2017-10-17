@@ -112,4 +112,16 @@ public class SuperMarioTest {
         assertTrue(mario.hasFireFlower() && !mario.hasMushroom());
     }
 
+    @Test
+    public void WhenSuperMarioFirstFindsMushroomAndThenFireFlowerFindsMushroom_ThenHeKeepsTheFireFlower()
+            throws Exception {
+        SuperMario mario = new SuperMario();
+
+        mario.findsMushroom();
+        mario.findsFireFlower();
+        mario.findsMushroom();
+
+        assertTrue(mario.hasFireFlower() && !mario.hasMushroom());
+    }
+
 }

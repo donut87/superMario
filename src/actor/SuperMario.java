@@ -49,6 +49,7 @@ public class SuperMario {
     }
 
     public void findsFireFlower() {
+        hasMushroom = false;
         this.fireFlower = true;
     }
 
