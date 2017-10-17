@@ -23,11 +23,6 @@ public class MarioWithFireFlower extends AbstractMario implements IamSuperMario 
     }
 
     @Override
-    public IamSuperMario findsLive() {
-        return this;
-    }
-
-    @Override
     public IamSuperMario findsFireFlower() {
         return this;
     }

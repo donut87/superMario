@@ -34,7 +34,7 @@ public class SuperMarioTest {
     public void WhenSuperMarioDies_HeLosesALive() throws Exception {
         IamSuperMario mario = new SmallMario();
 
-        mario.isHitByEnemy();
+        mario = mario.isHitByEnemy();
 
         assertEquals(2, mario.getLives());
     }
@@ -65,12 +65,12 @@ public class SuperMarioTest {
         IamSuperMario mario = new SmallMario();
 
         // kill Mario
-        mario.isHitByEnemy();
-        mario.isHitByEnemy();
-        mario.isHitByEnemy();
-        mario.isHitByEnemy();
+        mario = mario.isHitByEnemy();
+        mario = mario.isHitByEnemy();
+        mario = mario.isHitByEnemy();
+        mario = mario.isHitByEnemy();
 
-        mario.findsLive();
+        mario = mario.findsLive();
 
         assertFalse(mario.isDead());
     }
@@ -79,7 +79,7 @@ public class SuperMarioTest {
     public void WhenSuperMarioFindsAFireFlower_ThenHeGrows() throws Exception {
         IamSuperMario mario = new SmallMario();
 
-        mario.findsFireFlower();
+        mario = mario.findsFireFlower();
 
         assertTrue(mario.hasFireFlower());
     }
@@ -88,8 +88,8 @@ public class SuperMarioTest {
     public void WhenMarioWithFireFlowerIsHitByEnemy_ThenHeBecomesMarioWithMushroom() throws Exception {
         IamSuperMario mario = new SmallMario();
 
-        mario.findsFireFlower();
-        mario.isHitByEnemy();
+        mario = mario.findsFireFlower();
+        mario = mario.isHitByEnemy();
 
         assertTrue(mario.hasMushroom() && !mario.hasFireFlower());
     }
@@ -101,7 +101,8 @@ public class SuperMarioTest {
         mario = mario.findsFireFlower();
         mario = mario.findsMushroom();
 
-        assertTrue(mario.hasFireFlower() && !mario.hasMushroom());
+        assertTrue(mario.hasFireFlower());
+        assertTrue(!mario.hasMushroom());
     }
 
     @Test
@@ -109,9 +110,9 @@ public class SuperMarioTest {
             throws Exception {
         IamSuperMario mario = new SmallMario();
 
-        mario.findsMushroom();
-        mario.findsFireFlower();
-        mario.findsMushroom();
+        mario = mario.findsMushroom();
+        mario = mario.findsFireFlower();
+        mario = mario.findsMushroom();
 
         assertTrue(mario.hasFireFlower() && !mario.hasMushroom());
     }

@@ -17,4 +17,10 @@ public abstract class AbstractMario implements IamSuperMario {
         lives--;
     }
 
+    @Override
+    public IamSuperMario findsLive() {
+        increaseLive();
+        return this;
+    }
+
 }
