@@ -1,10 +1,10 @@
 package actor;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-
-import actor.SuperMario;
 
 public class SuperMarioTest {
 
@@ -57,6 +57,30 @@ public class SuperMarioTest {
         mario.isHitByEnemy();
 
         assertTrue(mario.isDead());
+    }
+
+    @Test
+    public void WhenSuperMarioFindsALive_ThenHisNumberOfLivesAreIncreased() throws Exception {
+        SuperMario mario = new SuperMario();
+
+        mario.findsLive();
+
+        assertEquals(4, mario.getLives());
+    }
+
+    @Test
+    public void WhenDeadSuperMarioFindsLive_HeBecomesAliveAgain() throws Exception {
+        SuperMario mario = new SuperMario();
+
+        // kill Mario
+        mario.isHitByEnemy();
+        mario.isHitByEnemy();
+        mario.isHitByEnemy();
+        mario.isHitByEnemy();
+
+        mario.findsLive();
+
+        assertFalse(mario.isDead());
     }
 
 }

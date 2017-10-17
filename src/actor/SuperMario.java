@@ -33,4 +33,11 @@ public class SuperMario {
         return lives;
     }
 
+    public void findsLive() {
+        if (isDead) {
+            isDead = false;
+        }
+        lives++;
+    }
+
 }
