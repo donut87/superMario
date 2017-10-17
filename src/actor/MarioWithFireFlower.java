@@ -17,4 +17,9 @@ public class MarioWithFireFlower extends AbstractMario implements IamSuperMario 
         return this;
     }
 
+    @Override
+    public IamSuperMario findsIceFlower() {
+        return new MarioWithIceFlower();
+    }
+
 }

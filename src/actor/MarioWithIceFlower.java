@@ -1,10 +1,10 @@
 package actor;
 
-public class DeadMario implements IamSuperMario {
+public class MarioWithIceFlower implements IamSuperMario {
 
     @Override
     public IamSuperMario isHitByEnemy() {
-        return this;
+        return new MarioWithMushroom();
     }
 
     @Override
@@ -14,21 +14,25 @@ public class DeadMario implements IamSuperMario {
 
     @Override
     public int getLives() {
+        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
     public IamSuperMario findsLive() {
-        return new SmallMario();
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override
     public IamSuperMario findsFireFlower() {
-        return this;
+        return new MarioWithFireFlower();
     }
 
     @Override
     public IamSuperMario findsIceFlower() {
-        return this;
+        // TODO Auto-generated method stub
+        return null;
     }
+
 }

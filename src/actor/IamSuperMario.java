@@ -12,4 +12,6 @@ public interface IamSuperMario {
 
     IamSuperMario findsFireFlower();
 
+    IamSuperMario findsIceFlower();
+
 }
