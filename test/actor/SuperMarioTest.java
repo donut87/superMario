@@ -43,10 +43,10 @@ public class SuperMarioTest {
     public void WhenSuperMarioHasUsedAllLives_ThenHeHeIsDead() throws Exception {
         IamSuperMario mario = new SmallMario();
 
-        mario.isHitByEnemy();
-        mario.isHitByEnemy();
-        mario.isHitByEnemy();
-        mario.isHitByEnemy();
+        mario = mario.isHitByEnemy();
+        mario = mario.isHitByEnemy();
+        mario = mario.isHitByEnemy();
+        mario = mario.isHitByEnemy();
 
         assertTrue(mario.isDead());
     }
