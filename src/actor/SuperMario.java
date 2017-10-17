@@ -2,10 +2,20 @@ package actor;
 
 public class SuperMario {
 
-    private boolean isDead;
+    public enum MarioState {
+        DEAD, SMALL, MUSHROOM, FIREFLOWER
+    }
+
+    private MarioState state;
+
     private boolean hasMushroom;
     private int lives = 3;
     private boolean fireFlower;
+
+    public SuperMario() {
+        state = MarioState.SMALL;
+        lives = 3;
+    }
 
     public void isHitByEnemy() {
         if (hasMushroom) {
@@ -19,12 +29,12 @@ public class SuperMario {
         }
         lives -= 1;
         if (lives < 0) {
-            isDead = true;
+            state = MarioState.DEAD;
         }
     }
 
     public boolean isDead() {
-        return isDead;
+        return MarioState.DEAD.equals(state);
     }
 
     public void findsMushroom() {
@@ -42,8 +52,8 @@ public class SuperMario {
     }
 
     public void findsLive() {
-        if (isDead) {
-            isDead = false;
+        if (isDead()) {
+            state = MarioState.SMALL;
         }
         lives++;
     }
