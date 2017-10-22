@@ -27,7 +27,7 @@ public abstract class AbstractMario implements IamSuperMario {
 
     @Override
     public IamSuperMario shoot(Consumer<String> object) {
-        return null;
+        return this;
     }
 
 }

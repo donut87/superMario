@@ -3,7 +3,10 @@ package actor;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.function.Consumer;
+
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class SmallMarioTest {
 
@@ -67,5 +70,15 @@ public class SmallMarioTest {
         mario = mario.findsIceFlower();
 
         assertTrue(MarioWithIceFlower.class.isAssignableFrom(mario.getClass()));
+    }
+
+    @Test
+    public void WhenSmallMarioGetsCommandToShoot_ThenNothingHappens() throws Exception {
+        IamSuperMario mario = new SmallMario();
+
+        Consumer<String> consumer = Mockito.mock(Consumer.class);
+        mario.shoot(consumer);
+
+        Mockito.verify(consumer, Mockito.never()).accept(Mockito.anyString());
     }
 }

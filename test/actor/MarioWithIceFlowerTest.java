@@ -2,7 +2,10 @@ package actor;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.function.Consumer;
+
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class MarioWithIceFlowerTest {
     @Test
@@ -39,5 +42,16 @@ public class MarioWithIceFlowerTest {
         mario = mario.findsIceFlower();
 
         assertTrue(MarioWithIceFlower.class.isAssignableFrom(mario.getClass()));
+    }
+
+    @Test
+    public void WhenSuperMarioWithFireFlowerGetsCommandForShooting_ThenHeShootsFireBall() throws Exception {
+        IamSuperMario mario = new MarioWithIceFlower();
+        Consumer<String> consumer = Mockito.mock(Consumer.class);
+
+        mario = mario.shoot(consumer);
+
+        Mockito.verify(consumer, Mockito.atLeastOnce()).accept("Iceball");
+        Mockito.verify(consumer, Mockito.atMost(1)).accept("Iceball");
     }
 }
