@@ -2,6 +2,14 @@ package actor;
 
 public class DeadMario extends AbstractMario implements IamSuperMario {
 
+    public DeadMario(int lives) {
+        super(lives);
+    }
+
+    public DeadMario() {
+        this(0);
+    }
+
     @Override
     public IamSuperMario isHitByEnemy() {
         return this;
@@ -19,7 +27,7 @@ public class DeadMario extends AbstractMario implements IamSuperMario {
 
     @Override
     public IamSuperMario findsLive() {
-        return new SmallMario();
+        return new SmallMario(0);
     }
 
     @Override

@@ -6,6 +6,10 @@ public abstract class AbstractMario implements IamSuperMario {
 
     private int lives = 3;
 
+    public AbstractMario(int lives) {
+        this.lives = lives;
+    }
+
     @Override
     public int getLives() {
         return lives;

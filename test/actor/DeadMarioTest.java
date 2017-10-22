@@ -55,4 +55,11 @@ public class DeadMarioTest {
         assertTrue(DeadMario.class.isAssignableFrom(mario.getClass()));
     }
 
+    @Test
+    public void WhenDeadMarioFindsLive_ThenHeIsSmallAndHasZeroLives() throws Exception {
+        mario = mario.findsLive();
+
+        assertEquals(0, mario.getLives());
+    }
+
 }

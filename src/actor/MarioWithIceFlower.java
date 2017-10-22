@@ -4,9 +4,17 @@ import java.util.function.Consumer;
 
 public class MarioWithIceFlower extends AbstractMario implements IamSuperMario {
 
+    public MarioWithIceFlower(int lives) {
+        super(lives);
+    }
+
+    public MarioWithIceFlower() {
+        this(3);
+    }
+
     @Override
     public IamSuperMario isHitByEnemy() {
-        return new MarioWithMushroom();
+        return new MarioWithMushroom(getLives());
     }
 
     @Override
@@ -16,7 +24,7 @@ public class MarioWithIceFlower extends AbstractMario implements IamSuperMario {
 
     @Override
     public IamSuperMario findsFireFlower() {
-        return new MarioWithFireFlower();
+        return new MarioWithFireFlower(getLives());
     }
 
     @Override

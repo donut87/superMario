@@ -81,4 +81,13 @@ public class SmallMarioTest {
 
         Mockito.verify(consumer, Mockito.never()).accept(Mockito.anyString());
     }
+
+    @Test
+    public void WhenSmallMarioFindsAMushroom_ThenTheLivesAreTheSame() throws Exception {
+        IamSuperMario mario = new SmallMario(5);
+
+        mario = mario.findsMushroom();
+
+        assertEquals(5, mario.getLives());
+    }
 }
