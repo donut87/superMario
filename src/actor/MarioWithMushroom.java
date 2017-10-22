@@ -13,17 +13,12 @@ public class MarioWithMushroom extends AbstractMario implements IamSuperMario {
     }
 
     @Override
-    public IamSuperMario findsLive() {
-        return this;
-    }
-
-    @Override
     public IamSuperMario findsFireFlower() {
         return new MarioWithFireFlower();
     }
 
     @Override
     public IamSuperMario findsIceFlower() {
-        return null;
+        return new MarioWithIceFlower();
     }
 }
