@@ -1,5 +1,7 @@
 package actor;
 
+import java.util.function.Consumer;
+
 public interface IamSuperMario {
 
     IamSuperMario isHitByEnemy();
@@ -13,5 +15,7 @@ public interface IamSuperMario {
     IamSuperMario findsFireFlower();
 
     IamSuperMario findsIceFlower();
+
+    IamSuperMario shoot(Consumer<String> object);
 
 }

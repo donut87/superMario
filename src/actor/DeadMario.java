@@ -1,6 +1,6 @@
 package actor;
 
-public class DeadMario implements IamSuperMario {
+public class DeadMario extends AbstractMario implements IamSuperMario {
 
     @Override
     public IamSuperMario isHitByEnemy() {

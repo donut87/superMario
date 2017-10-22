@@ -1,5 +1,7 @@
 package actor;
 
+import java.util.function.Consumer;
+
 public abstract class AbstractMario implements IamSuperMario {
 
     private int lives = 3;
@@ -21,6 +23,11 @@ public abstract class AbstractMario implements IamSuperMario {
     public IamSuperMario findsLive() {
         increaseLive();
         return this;
+    }
+
+    @Override
+    public IamSuperMario shoot(Consumer<String> object) {
+        return null;
     }
 
 }
