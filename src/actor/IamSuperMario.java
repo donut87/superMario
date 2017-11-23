@@ -20,4 +20,6 @@ public interface IamSuperMario {
 
     IamSuperMario findsStar();
 
+    IamSuperMario findsYoshi();
+
 }
