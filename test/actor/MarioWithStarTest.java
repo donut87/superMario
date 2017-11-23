@@ -67,4 +67,15 @@ public class MarioWithStarTest {
 
         Mockito.verify(delegate, Mockito.times(0)).findsStar();
     }
+
+    @Test
+    public void WhenMarioWithStarIsHitByEnemyAfterTimeIsOver_ThenMarioIsHitByEnemy() throws Exception {
+        IamSuperMario delegate = new MarioWithMushroom();
+        IamSuperMario mario = new MarioWithStar(delegate);
+        Thread.sleep(1005);
+
+        mario = mario.isHitByEnemy();
+
+        assertTrue(SmallMario.class.isAssignableFrom(mario.getClass()));
+    }
 }

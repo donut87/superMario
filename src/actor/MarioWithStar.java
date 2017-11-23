@@ -1,18 +1,37 @@
 package actor;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 public class MarioWithStar extends AbstractMario {
 
     private final IamSuperMario originalMario;
+    private boolean isProtected = true;
 
     public MarioWithStar(IamSuperMario originalMario) {
         super(originalMario.getLives());
         this.originalMario = originalMario;
+
+        looseStarAfterOneSecond();
+    }
+
+    private void looseStarAfterOneSecond() {
+        Executors.newSingleThreadScheduledExecutor().schedule(new Runnable() {
+            @Override
+            public void run() {
+                isProtected = false;
+            }
+        }, 1, TimeUnit.SECONDS);
     }
 
 
     @Override
     public IamSuperMario isHitByEnemy() {
-        return this;
+        if (isProtected) {
+            return this;
+        } else {
+            return this.originalMario.isHitByEnemy();
+        }
     }
 
     @Override
