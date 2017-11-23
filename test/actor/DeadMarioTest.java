@@ -3,8 +3,11 @@ package actor;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.function.Consumer;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class DeadMarioTest {
     
@@ -60,6 +63,14 @@ public class DeadMarioTest {
         mario = mario.findsLive();
 
         assertEquals(0, mario.getLives());
+    }
+
+    @Test
+    public void WhenDeadMarioFires_ThenNothingHappens() throws Exception {
+        Consumer<String> consumer = Mockito.mock(Consumer.class);
+        mario.shoot(consumer);
+
+        Mockito.verify(consumer, Mockito.never()).accept(Mockito.anyString());
     }
 
 }
