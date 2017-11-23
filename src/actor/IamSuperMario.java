@@ -18,4 +18,6 @@ public interface IamSuperMario {
 
     IamSuperMario shoot(Consumer<String> object);
 
+    IamSuperMario findsStar();
+
 }

@@ -34,4 +34,9 @@ public abstract class AbstractMario implements IamSuperMario {
         return this;
     }
 
+    @Override
+    public IamSuperMario findsStar() {
+        return new MarioWithStar(this);
+    }
+
 }
