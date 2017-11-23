@@ -2,7 +2,7 @@ package actor;
 
 public class MarioWithStar extends AbstractMario {
 
-    private IamSuperMario originalMario;
+    private final IamSuperMario originalMario;
 
     public MarioWithStar(IamSuperMario originalMario) {
         super(originalMario.getLives());
@@ -17,20 +17,17 @@ public class MarioWithStar extends AbstractMario {
 
     @Override
     public IamSuperMario findsMushroom() {
-        originalMario = originalMario.findsMushroom();
-        return this;
+        return new MarioWithStar(originalMario.findsMushroom());
     }
 
     @Override
     public IamSuperMario findsFireFlower() {
-        originalMario = originalMario.findsFireFlower();
-        return this;
+        return new MarioWithStar(originalMario.findsFireFlower());
     }
 
     @Override
     public IamSuperMario findsIceFlower() {
-        originalMario = originalMario.findsIceFlower();
-        return this;
+        return new MarioWithStar(originalMario.findsIceFlower());
     }
 
     @Override
