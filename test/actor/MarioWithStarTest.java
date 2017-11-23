@@ -17,11 +17,11 @@ public class MarioWithStarTest {
 
     @Test
     public void WhenMarioWithStarIsHitByEnemy_ThenHisOriginalTypeStaysTheSame() throws Exception {
-        IamSuperMario starMario = new MarioWithStar(new MarioWithFireFlower());
+        IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
+        IamSuperMario starMario = new MarioWithStar(delegate);
         
         starMario = starMario.isHitByEnemy();
-        
-        assertTrue(MarioWithFireFlower.class.isAssignableFrom(((MarioWithStar) starMario).getOriginalMario().getClass()));
+        Mockito.verify(delegate, Mockito.never()).isHitByEnemy();
     }
 
     @Test
