@@ -2,6 +2,7 @@ package actor;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 public class MarioWithStar extends AbstractMario {
 
@@ -54,8 +55,9 @@ public class MarioWithStar extends AbstractMario {
         return this;
     }
 
-    public IamSuperMario getOriginalMario() {
-        return originalMario;
+    @Override
+    public IamSuperMario shoot(Consumer<String> object) {
+        return originalMario.shoot(object);
     }
 
 }

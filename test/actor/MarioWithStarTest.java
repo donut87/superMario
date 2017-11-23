@@ -2,6 +2,8 @@ package actor;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.function.Consumer;
+
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -77,5 +79,16 @@ public class MarioWithStarTest {
         mario = mario.isHitByEnemy();
 
         assertTrue(SmallMario.class.isAssignableFrom(mario.getClass()));
+    }
+
+    @Test
+    public void WhenMarioWithStarShoots_ThenDelegateCallsShootMethod() throws Exception {
+        IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
+        IamSuperMario mario = new MarioWithStar(delegate);
+        Consumer<String> object = Mockito.mock(Consumer.class);
+
+        mario = mario.shoot(object);
+
+        Mockito.verify(delegate, Mockito.times(1)).shoot(Mockito.any());
     }
 }
