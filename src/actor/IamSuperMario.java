@@ -22,4 +22,8 @@ public interface IamSuperMario {
 
     IamSuperMario findsYoshi();
 
+	int getCoinBallance();
+
+	IamSuperMario findCoins(int i);
+
 }
