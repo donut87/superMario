@@ -73,6 +73,7 @@ public class SmallMarioTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void WhenSmallMarioGetsCommandToShoot_ThenNothingHappens() throws Exception {
         IamSuperMario mario = new SmallMario();
 

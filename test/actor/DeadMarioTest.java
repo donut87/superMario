@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 public class DeadMarioTest {
-    
+
     IamSuperMario mario;
 
     @Before
@@ -66,6 +66,7 @@ public class DeadMarioTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void WhenDeadMarioFires_ThenNothingHappens() throws Exception {
         Consumer<String> consumer = Mockito.mock(Consumer.class);
         mario.shoot(consumer);

@@ -45,6 +45,7 @@ public class MarioWithIceFlowerTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void WhenSuperMarioWithFireFlowerGetsCommandForShooting_ThenHeShootsFireBall() throws Exception {
         IamSuperMario mario = new MarioWithIceFlower();
         Consumer<String> consumer = Mockito.mock(Consumer.class);

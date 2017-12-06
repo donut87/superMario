@@ -19,6 +19,7 @@ public class MarioWithYoshiTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void WhenMarioWithYoshiShoots_ThenDelegateShoots() throws Exception {
         IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
         Mockito.when(delegate.shoot(Mockito.any())).thenReturn(delegate);

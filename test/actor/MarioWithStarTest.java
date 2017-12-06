@@ -21,7 +21,7 @@ public class MarioWithStarTest {
     public void WhenMarioWithStarIsHitByEnemy_ThenHisOriginalTypeStaysTheSame() throws Exception {
         IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
         IamSuperMario starMario = new MarioWithStar(delegate);
-        
+
         starMario = starMario.isHitByEnemy();
         Mockito.verify(delegate, Mockito.never()).isHitByEnemy();
     }
@@ -82,6 +82,7 @@ public class MarioWithStarTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void WhenMarioWithStarShoots_ThenDelegateCallsShootMethod() throws Exception {
         IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
         IamSuperMario mario = new MarioWithStar(delegate);
