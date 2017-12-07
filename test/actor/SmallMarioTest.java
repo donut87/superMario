@@ -49,7 +49,7 @@ public class SmallMarioTest {
     public void WhenSuperMarioFindsALive_ThenHisNumberOfLivesAreIncreased() throws Exception {
         IamSuperMario mario = new SmallMario();
 
-        mario.findsLive();
+		mario = mario.findsLive();
 
         assertEquals(4, mario.getLives());
     }

@@ -4,24 +4,25 @@ import java.util.function.Consumer;
 
 public abstract class AbstractMario implements IamSuperMario {
 
-    private int lives = 3;
-	private int coins = 0;
+	private Life life;
 
-    public AbstractMario(int lives) {
-        this.lives = lives;
-    }
+	// new Life(lives, 0)
+
+	public AbstractMario(Life life) {
+		this.life = life;
+	}
 
     @Override
     public int getLives() {
-        return lives;
+		return life.getLives();
     }
 
     protected void increaseLive() {
-        lives++;
+		life = life.increase();
     }
 
     protected void decreaseLive() {
-        lives--;
+		life = life.decrease();
     }
 
     @Override
@@ -47,16 +48,13 @@ public abstract class AbstractMario implements IamSuperMario {
 
 	@Override
 	public int getCoinBallance() {
-		return this.coins;
+		return life.getCoins();
 	}
 
 	@Override
 	public IamSuperMario findCoins(int i) {
-		coins += i;
-		if (coins >= 100) {
-			lives++;
-			coins -= 100;
-		}
+
+		life = life.findCoins(i);
 		return this;
 	}
 

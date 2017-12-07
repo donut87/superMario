@@ -3,7 +3,7 @@ package actor;
 public class SmallMario extends AbstractMario implements IamSuperMario {
 
     public SmallMario(int i) {
-        super(i);
+		super(new Life(i, 0));
     }
 
     public SmallMario() {

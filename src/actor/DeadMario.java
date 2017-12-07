@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 public class DeadMario extends AbstractMario implements IamSuperMario {
 
     public DeadMario(int lives) {
-        super(lives);
+		super(new Life(0, 0));
     }
 
     public DeadMario() {

@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 public class MarioWithIceFlower extends AbstractMario implements IamSuperMario {
 
     public MarioWithIceFlower(int lives) {
-        super(lives);
+		super(new Life(lives, 0));
     }
 
     public MarioWithIceFlower() {
