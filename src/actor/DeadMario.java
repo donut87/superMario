@@ -5,10 +5,12 @@ import java.util.function.Consumer;
 import alive.IamAlive;
 import alive.Life;
 
-public class DeadMario extends AbstractMario implements IamSuperMario {
+public class DeadMario implements IamSuperMario {
+
+	private IamAlive life;
 
 	public DeadMario(IamAlive life) {
-		super(life);
+		this.life = life;
 	}
 
     public DeadMario() {
@@ -44,4 +46,24 @@ public class DeadMario extends AbstractMario implements IamSuperMario {
     public IamSuperMario shoot(Consumer<String> object) {
         return this;
     }
+
+	@Override
+	public IamSuperMario findsStar() {
+		return this;
+	}
+
+	@Override
+	public IamSuperMario findsYoshi() {
+		return this;
+	}
+
+	@Override
+	public IamSuperMario findCoins(int i) {
+		return this;
+	}
+
+	@Override
+	public IamAlive getLife() {
+		return life;
+	}
 }

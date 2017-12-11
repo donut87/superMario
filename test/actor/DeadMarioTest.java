@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import alive.IamAlive;
+
 public class DeadMarioTest {
 
     IamSuperMario mario;
@@ -73,5 +75,36 @@ public class DeadMarioTest {
 
         Mockito.verify(consumer, Mockito.never()).accept(Mockito.anyString());
     }
+
+	@Test
+	public void WhenDeadMarioFindsStar_ThenHeStaysDead() throws Exception {
+		mario = mario.findsStar();
+
+		assertTrue(DeadMario.class.isAssignableFrom(mario.getClass()));
+	}
+
+	@Test
+	public void WhenDeadMarioFindsYoshi_ThenHeStaysDead() throws Exception {
+		mario = mario.findsYoshi();
+
+		assertTrue(DeadMario.class.isAssignableFrom(mario.getClass()));
+	}
+
+	@Test
+	public void WhenDeadMarioFindsCoin_ThenHeStaysDead() throws Exception {
+		mario = mario.findCoins(1);
+
+		assertTrue(DeadMario.class.isAssignableFrom(mario.getClass()));
+	}
+
+	@Test
+	public void WhenDeadMarioFindsCoins_CoinsAreNotCollected() throws Exception {
+		IamAlive life = Mockito.mock(IamAlive.class);
+		IamSuperMario mario = new DeadMario(life);
+
+		mario.findCoins(2);
+
+		Mockito.verify(life, Mockito.never()).findCoins(Mockito.anyInt());
+	}
 
 }
