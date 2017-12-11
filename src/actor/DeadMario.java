@@ -2,6 +2,8 @@ package actor;
 
 import java.util.function.Consumer;
 
+import alive.Life;
+
 public class DeadMario extends AbstractMario implements IamSuperMario {
 
 	public DeadMario(Life life) {

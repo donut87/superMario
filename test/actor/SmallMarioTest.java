@@ -8,6 +8,8 @@ import java.util.function.Consumer;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import alive.Life;
+
 public class SmallMarioTest {
 
     @Test

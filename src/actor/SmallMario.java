@@ -1,5 +1,7 @@
 package actor;
 
+import alive.Life;
+
 public class SmallMario extends AbstractMario implements IamSuperMario {
 
 	public SmallMario(Life life) {

@@ -2,6 +2,8 @@ package actor;
 
 import java.util.function.Consumer;
 
+import alive.Life;
+
 public abstract class AbstractMario implements IamSuperMario {
 
 	private Life life;

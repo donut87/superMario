@@ -1,4 +1,8 @@
-package actor;
+package alive;
+
+import actor.DeadMario;
+import actor.IamSuperMario;
+import actor.SmallMario;
 
 public class Life {
 	
