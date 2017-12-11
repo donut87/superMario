@@ -12,13 +12,9 @@ public abstract class AbstractMario implements IamSuperMario {
 		this.life = life;
 	}
 
-    protected void increaseLive() {
-		life = life.increase();
-    }
-
     @Override
     public IamSuperMario findsLive() {
-        increaseLive();
+        life = life.increase();
         return this;
     }
 
