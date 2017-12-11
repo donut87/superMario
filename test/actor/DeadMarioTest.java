@@ -27,7 +27,7 @@ public class DeadMarioTest {
 
     @Test
     public void DeadMarioHasNoLives() throws Exception {
-        assertEquals(0, mario.getLives());
+		assertEquals(0, mario.getLife().getLives());
     }
 
     @Test
@@ -62,7 +62,7 @@ public class DeadMarioTest {
     public void WhenDeadMarioFindsLive_ThenHeIsSmallAndHasZeroLives() throws Exception {
         mario = mario.findsLive();
 
-        assertEquals(0, mario.getLives());
+		assertEquals(0, mario.getLife().getLives());
     }
 
     @Test

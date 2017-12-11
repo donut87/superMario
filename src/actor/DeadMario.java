@@ -4,12 +4,12 @@ import java.util.function.Consumer;
 
 public class DeadMario extends AbstractMario implements IamSuperMario {
 
-    public DeadMario(int lives) {
-		super(new Life(0, 0));
-    }
+	public DeadMario(Life life) {
+		super(life);
+	}
 
     public DeadMario() {
-        this(0);
+		this(new Life(0, 0));
     }
 
     @Override
@@ -23,13 +23,8 @@ public class DeadMario extends AbstractMario implements IamSuperMario {
     }
 
     @Override
-    public int getLives() {
-        return 0;
-    }
-
-    @Override
     public IamSuperMario findsLive() {
-        return new SmallMario(0);
+		return new SmallMario(new Life(0, 0));
     }
 
     @Override

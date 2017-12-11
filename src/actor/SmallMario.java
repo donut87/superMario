@@ -2,35 +2,31 @@ package actor;
 
 public class SmallMario extends AbstractMario implements IamSuperMario {
 
-    public SmallMario(int i) {
-		super(new Life(i, 0));
-    }
+	public SmallMario(Life life) {
+		super(life);
+	}
 
     public SmallMario() {
-        this(3);
+		this(new Life(3, 0));
     }
 
     @Override
     public IamSuperMario isHitByEnemy() {
-        decreaseLive();
-        if (getLives() < 0) {
-            return new DeadMario();
-        }
-        return this;
+		return this.getLife().decrease();
     }
 
     @Override
     public IamSuperMario findsMushroom() {
-        return new MarioWithMushroom(getLives());
+		return new MarioWithMushroom(getLife());
     }
 
     @Override
     public IamSuperMario findsFireFlower() {
-        return new MarioWithFireFlower(getLives());
+		return new MarioWithFireFlower(getLife());
     }
 
     @Override
     public IamSuperMario findsIceFlower() {
-        return new MarioWithIceFlower(getLives());
+		return new MarioWithIceFlower(getLife());
     }
 }

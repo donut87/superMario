@@ -6,23 +6,12 @@ public abstract class AbstractMario implements IamSuperMario {
 
 	private Life life;
 
-	// new Life(lives, 0)
-
 	public AbstractMario(Life life) {
 		this.life = life;
 	}
 
-    @Override
-    public int getLives() {
-		return life.getLives();
-    }
-
     protected void increaseLive() {
 		life = life.increase();
-    }
-
-    protected void decreaseLive() {
-		life = life.decrease();
     }
 
     @Override
@@ -47,15 +36,15 @@ public abstract class AbstractMario implements IamSuperMario {
     }
 
 	@Override
-	public int getCoinBallance() {
-		return life.getCoins();
-	}
-
-	@Override
 	public IamSuperMario findCoins(int i) {
 
 		life = life.findCoins(i);
 		return this;
+	}
+
+	@Override
+	public Life getLife() {
+		return this.life;
 	}
 
 }

@@ -7,7 +7,7 @@ public class MarioWithYoshi extends AbstractMario implements IamSuperMario {
     private final IamSuperMario originalMario;
 
     public MarioWithYoshi(IamSuperMario abstractMario) {
-		super(new Life(abstractMario.getLives(), abstractMario.getCoinBallance()));
+		super(abstractMario.getLife());
         this.originalMario = abstractMario;
     }
 

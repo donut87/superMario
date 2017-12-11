@@ -10,7 +10,7 @@ public class MarioWithStar extends AbstractMario {
     private boolean isProtected = true;
 
     public MarioWithStar(IamSuperMario originalMario) {
-		super(new Life(originalMario.getLives(), originalMario.getCoinBallance()));
+		super(originalMario.getLife());
         this.originalMario = originalMario;
 
         looseStarAfterOneSecond();

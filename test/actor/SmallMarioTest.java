@@ -21,7 +21,7 @@ public class SmallMarioTest {
     public void WhenSuperMarioStarts_ThenHeHasThreeLives() throws Exception {
         IamSuperMario mario = new SmallMario();
 
-        assertEquals(3, mario.getLives());
+		assertEquals(3, mario.getLife().getLives());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class SmallMarioTest {
 
         mario = mario.isHitByEnemy();
 
-        assertEquals(2, mario.getLives());
+		assertEquals(2, mario.getLife().getLives());
     }
 
     @Test
@@ -51,7 +51,7 @@ public class SmallMarioTest {
 
 		mario = mario.findsLive();
 
-        assertEquals(4, mario.getLives());
+		assertEquals(4, mario.getLife().getLives());
     }
 
     @Test
@@ -85,10 +85,10 @@ public class SmallMarioTest {
 
     @Test
     public void WhenSmallMarioFindsAMushroom_ThenTheLivesAreTheSame() throws Exception {
-        IamSuperMario mario = new SmallMario(5);
+		IamSuperMario mario = new SmallMario(new Life(5, 0));
 
         mario = mario.findsMushroom();
 
-        assertEquals(5, mario.getLives());
+		assertEquals(5, mario.getLife().getLives());
     }
 }

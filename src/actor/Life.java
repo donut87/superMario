@@ -22,8 +22,11 @@ public class Life {
 		return new Life(lives + 1, coins);
 	}
 
-	public Life decrease() {
-		return new Life(lives - 1, coins);
+	public IamSuperMario decrease() {
+		if (this.lives == 0) {
+			return new DeadMario();
+		}
+		return new SmallMario(new Life(lives - 1, coins));
 	}
 
 	public Life findCoins(int i) {

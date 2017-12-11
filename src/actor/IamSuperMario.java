@@ -8,8 +8,6 @@ public interface IamSuperMario {
 
     IamSuperMario findsMushroom();
 
-    int getLives();
-
     IamSuperMario findsLive();
 
     IamSuperMario findsFireFlower();
@@ -22,8 +20,8 @@ public interface IamSuperMario {
 
     IamSuperMario findsYoshi();
 
-	int getCoinBallance();
-
 	IamSuperMario findCoins(int i);
+
+	Life getLife();
 
 }

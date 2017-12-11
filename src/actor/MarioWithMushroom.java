@@ -2,17 +2,17 @@ package actor;
 
 public class MarioWithMushroom extends AbstractMario implements IamSuperMario {
 
-    public MarioWithMushroom(int lives) {
-		super(new Life(lives, 0));
-    }
+	public MarioWithMushroom(Life life) {
+		super(life);
+	}
 
     public MarioWithMushroom() {
-        this(3);
+		this(new Life(3, 0));
     }
 
     @Override
     public IamSuperMario isHitByEnemy() {
-        return new SmallMario(getLives());
+		return new SmallMario(getLife());
     }
 
     @Override
@@ -22,11 +22,11 @@ public class MarioWithMushroom extends AbstractMario implements IamSuperMario {
 
     @Override
     public IamSuperMario findsFireFlower() {
-        return new MarioWithFireFlower(getLives());
+		return new MarioWithFireFlower(getLife());
     }
 
     @Override
     public IamSuperMario findsIceFlower() {
-        return new MarioWithIceFlower(getLives());
+		return new MarioWithIceFlower(getLife());
     }
 }
