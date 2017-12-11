@@ -1,5 +1,6 @@
 package actor;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.function.Consumer;
@@ -74,5 +75,45 @@ public class MarioWithYoshiTest {
 
         Mockito.verify(delegate, Mockito.times(1)).findsIceFlower();
     }
+
+	@Test
+	public void WhenMarioWithYoshiFindsCoins_ThenDelegateFindsCoins() throws Exception {
+		IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
+		IamSuperMario mario = new MarioWithYoshi(delegate);
+
+		mario = mario.findCoins(5);
+
+		Mockito.verify(delegate, Mockito.times(1)).findCoins(5);
+	}
+
+	@Test
+	public void WhenMarioWithYoshiFindsLife_ThenDelegateFindsLife() throws Exception {
+		IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
+		IamSuperMario mario = new MarioWithYoshi(delegate);
+
+		mario = mario.findsLive();
+
+		Mockito.verify(delegate, Mockito.times(1)).findsLive();
+	}
+
+	@Test
+	public void WhenMarioWithYoshiFindsYoshi_ThenNothingHappens() throws Exception {
+		IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
+		IamSuperMario mario = new MarioWithYoshi(delegate);
+
+		IamSuperMario mario2 = mario.findsYoshi();
+
+		assertEquals(mario, mario2);
+	}
+
+	@Test
+	public void WhenMarioWithYoshiFindsStar_ThenMarioBecomesMarioWithStar() throws Exception {
+		IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
+		IamSuperMario mario = new MarioWithYoshi(delegate);
+
+		mario = mario.findsStar();
+
+		assertTrue(MarioWithStar.class.isAssignableFrom(mario.getClass()));
+	}
 
 }
