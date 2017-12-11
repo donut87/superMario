@@ -7,6 +7,8 @@ import java.util.function.Consumer;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import alive.IamAlive;
+
 public class MarioWithFireFlowerTest {
 
     @Test
@@ -53,7 +55,36 @@ public class MarioWithFireFlowerTest {
 
         mario = mario.shoot(consumer);
 
-        Mockito.verify(consumer, Mockito.atLeastOnce()).accept(Mockito.any(String.class));
-        Mockito.verify(consumer, Mockito.atMost(1)).accept(Mockito.any(String.class));
+		Mockito.verify(consumer, Mockito.times(1)).accept(Mockito.any(String.class));
     }
+
+	@Test
+	public void WhenSuperMarioWithFireFlowerFindsALive_ThenLivesAreIncreased() throws Exception {
+		IamAlive life = Mockito.mock(IamAlive.class);
+		new MarioWithFireFlower(life).findsLive();
+
+		Mockito.verify(life, Mockito.times(1)).increase();
+	}
+
+	@Test
+	public void WhenMarioWithFireFlowerFindsAStar_ThenHeBecomesMarioWithAStar() throws Exception {
+		IamSuperMario mario = new MarioWithFireFlower().findsStar();
+
+		assertTrue(MarioWithStar.class.isAssignableFrom(mario.getClass()));
+	}
+
+	@Test
+	public void WhenMarioWithFireFlowerFindsAYoshi_ThenHeBecomesMarioWithYoshi() throws Exception {
+		IamSuperMario mario = new MarioWithFireFlower().findsYoshi();
+
+		assertTrue(MarioWithYoshi.class.isAssignableFrom(mario.getClass()));
+	}
+
+	@Test
+	public void WhenSuperMarioWithFireFlowerFindsCoins_ThenCoinsAreIncreased() throws Exception {
+		IamAlive life = Mockito.mock(IamAlive.class);
+		new MarioWithFireFlower(life).findCoins(5);
+
+		Mockito.verify(life, Mockito.times(1)).findCoins(5);
+	}
 }

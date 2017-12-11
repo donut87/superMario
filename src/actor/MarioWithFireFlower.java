@@ -5,10 +5,12 @@ import java.util.function.Consumer;
 import alive.IamAlive;
 import alive.Life;
 
-public class MarioWithFireFlower extends AbstractMario implements IamSuperMario {
+public class MarioWithFireFlower implements IamSuperMario {
+
+	private IamAlive life;
 
 	public MarioWithFireFlower(IamAlive life) {
-		super(life);
+		this.life = life;
 	}
 
     public MarioWithFireFlower() {
@@ -40,5 +42,30 @@ public class MarioWithFireFlower extends AbstractMario implements IamSuperMario 
         c.accept("Fireball");
         return this;
     }
+
+	@Override
+	public IamSuperMario findsLive() {
+		return new MarioWithFireFlower(life.increase());
+	}
+
+	@Override
+	public IamSuperMario findsStar() {
+		return new MarioWithStar(this);
+	}
+
+	@Override
+	public IamSuperMario findsYoshi() {
+		return new MarioWithYoshi(this);
+	}
+
+	@Override
+	public IamSuperMario findCoins(int i) {
+		return new MarioWithFireFlower(life.findCoins(i));
+	}
+
+	@Override
+	public IamAlive getLife() {
+		return life;
+	}
 
 }
