@@ -92,4 +92,34 @@ public class MarioWithStarTest {
 
         Mockito.verify(delegate, Mockito.times(1)).shoot(Mockito.any());
     }
+
+	@Test
+	public void WhenMarioWithStarFindsCoins_ThenDelegateFindsCoins() throws Exception {
+		IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
+		IamSuperMario mario = new MarioWithStar(delegate);
+
+		mario = mario.findCoins(5);
+
+		Mockito.verify(delegate, Mockito.times(1)).findCoins(5);
+	}
+
+	@Test
+	public void WhenMarioWithStarFindsLife_ThenDelegateFindsLife() throws Exception {
+		IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
+		IamSuperMario mario = new MarioWithStar(delegate);
+
+		mario = mario.findsLive();
+
+		Mockito.verify(delegate, Mockito.times(1)).findsLive();
+	}
+
+	@Test
+	public void WhenMarioWithStarFindsYoshi_ThenDelegateFindsYoshi() throws Exception {
+		IamSuperMario delegate = Mockito.mock(IamSuperMario.class);
+		IamSuperMario mario = new MarioWithStar(delegate);
+
+		mario = mario.findsYoshi();
+
+		Mockito.verify(delegate, Mockito.times(1)).findsYoshi();
+	}
 }
