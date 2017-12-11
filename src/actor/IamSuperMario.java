@@ -2,7 +2,7 @@ package actor;
 
 import java.util.function.Consumer;
 
-import alive.Life;
+import alive.IamAlive;
 
 public interface IamSuperMario {
 
@@ -24,6 +24,6 @@ public interface IamSuperMario {
 
 	IamSuperMario findCoins(int i);
 
-	Life getLife();
+	IamAlive getLife();
 
 }

@@ -2,13 +2,13 @@ package actor;
 
 import java.util.function.Consumer;
 
-import alive.Life;
+import alive.IamAlive;
 
 public abstract class AbstractMario implements IamSuperMario {
 
-	private Life life;
+	private IamAlive life;
 
-	public AbstractMario(Life life) {
+	public AbstractMario(IamAlive life) {
 		this.life = life;
 	}
 
@@ -45,7 +45,7 @@ public abstract class AbstractMario implements IamSuperMario {
 	}
 
 	@Override
-	public Life getLife() {
+	public IamAlive getLife() {
 		return this.life;
 	}
 
